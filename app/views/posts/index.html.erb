@@ -1,13 +1,17 @@
-<% post1 = "今日からProgateでRailsの勉強するよー！" %>
-<% post2 = "投稿一覧ページ作成中！" %>
+
+<% 
+  posts = [
+    '今日からProgateでRails',
+    '投稿一覧ページ作成中!'
+    ]
+%>
 
 <div class="main posts-index">
   <div class="container">
-    <div class="posts-index-item">
-      <%= post1 %>
-    </div>
-    <div class="posts-index-item">
-      <%= post2 %>
-    </div>
+    <% posts.each do |post| %>
+      <div class="posts-index-item">
+        <%= post %>
+      </div>
+    <% end %>
   </div>
 </div>
