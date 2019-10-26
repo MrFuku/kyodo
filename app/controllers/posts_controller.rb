@@ -21,7 +21,8 @@ class PostsController < ApplicationController
       redirect_to('/posts/index')
     else
       render('/posts/new')
-    end  end
+    end
+  end
 
   def update
     @post = Post.find_by(id: params[:id])
