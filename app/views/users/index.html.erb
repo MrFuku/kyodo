@@ -4,7 +4,7 @@
     <% @users.each do |user| %>
       <div class="users-index-item">
         <div class="user-right">
-          <%= user.name %>
+          <%= link_to(user.name, "/users/#{user.id}") %>
         </div>
       </div>
     <% end %>
