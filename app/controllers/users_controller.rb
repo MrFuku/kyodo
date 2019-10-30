@@ -14,10 +14,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(name: params[:name], email: params[:email])
     if @user.save
-      flash[:notice] = "ユーザー登録が完了しました"
+      flash[:notice] = 'ユーザー登録が完了しました'
       redirect_to("/users/#{@user.id}")
     else
-      render("/users/new")
+      render('/users/new')
     end
   end
 
@@ -30,10 +30,10 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.email = params[:email]
     if @user.save
-      flash[:notice] = "ユーザー情報を編集しました"
+      flash[:notice] = 'ユーザー情報を編集しました'
       redirect_to("/users/#{@user.id}")
     else
-      render("users/edit")
+      render('users/edit')
     end
   end
 end
