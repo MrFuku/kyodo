@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   get 'posts/:id/edit' => 'posts#edit'
   post 'posts/:id/update' => 'posts#update'
   post 'posts/:id/destroy' => 'posts#destroy'
-  get 'login' => 'users#login_forms'
-  
+  get 'login' => 'users#login_form'
+  post 'login' => 'users#login'
+
   get '/' => 'home#top'
   get '/about' => 'home#about'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
