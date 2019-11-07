@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id) # ユーザー名やユーザー画像を表示させるためにユーザー情報を取得
   end
 
   def new
