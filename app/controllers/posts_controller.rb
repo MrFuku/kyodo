@@ -17,7 +17,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(content: params[:content])
+    @post = Post.new(
+      content: params[:content],
+      user_id: @current_user.id # 新規投稿時にuser_idに投稿したユーザーの値を加える
+    )
     if @post.save
       flash[:notice] = "投稿を作成しました"
       redirect_to('/posts/index')
