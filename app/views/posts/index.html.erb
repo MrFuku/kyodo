@@ -2,6 +2,15 @@
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">
+        <div class="post-left">
+          <!-- ユーザーの画像を表示 -->
+          <img src="<%= "/user_images/#{post.user.image_name}" %>">
+        </div>
+        <div class="post-right">
+          <div class="post-user-name">
+            <!-- ユーザー詳細ページへのリンク -->
+            <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+        </div>
         <%= link_to(post.content, "/posts/#{post.id}") %>
       </div>
     <% end %>
