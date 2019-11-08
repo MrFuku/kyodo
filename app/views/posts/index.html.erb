@@ -10,6 +10,7 @@
           <div class="post-user-name">
             <!-- ユーザー詳細ページへのリンク -->
             <%= link_to(post.user.name, "/users/#{post.user.id}") %>
+          </div>
         </div>
         <%= link_to(post.content, "/posts/#{post.id}") %>
       </div>
