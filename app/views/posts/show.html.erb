@@ -1,17 +1,26 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
+      <div class="post-user-name">
+        <!-- ユーザーの画像を表示 -->
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        
+        <!-- ユーザー詳細ページへのリンク -->
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>
       <p>
         <%= @post.content %>
       </p>
-      <!-- ここに指定されたHTMLを貼り付けてください -->
       <div class="post-time">
-        <!-- @postのcreated_atカラムのデータを表示してください -->
         <%= @post.created_at %>
+      </div>
     </div>
-    <div class="post-menus">
-      <%= link_to("編集", "/posts/#{@post.id}/edit")%>
-      <%= link_to("削除", "/posts/#{@post.id}/destroy",{method: "post"})%>
-    </div>
+    <!-- ログインしているユーザーのみに表示する -->
+    <% if @post.user_id == @current_user.id %>
+        <div class="post-menus">
+          <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+          <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+        </div>
+    <% end %>
   </div>
 </div>
