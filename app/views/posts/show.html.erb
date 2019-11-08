@@ -13,6 +13,7 @@
       </p>
       <div class="post-time">
         <%= @post.created_at %>
+      </div>
     </div>
     <!-- ログインしているユーザーのみに表示する -->
     <% if @post.user_id == @current_user.id %>
