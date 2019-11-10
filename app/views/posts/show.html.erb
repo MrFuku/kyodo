@@ -18,7 +18,7 @@
       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
         いいね！済
       <% else %>
-        いいね！していません
+        <%= link_to("いいね！", "/likes/#{@post.id}/create", {method: "post"}) %>
       <% end %>
     </div>
     <!-- ログインしているユーザーのみに表示する -->
