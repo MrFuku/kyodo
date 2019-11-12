@@ -53,7 +53,6 @@ class UsersController < ApplicationController
   end
 
   def login_form
-    
   end
 
   def login
@@ -69,11 +68,16 @@ class UsersController < ApplicationController
       render('users/login_form')
     end
   end
-  
+
   def logout
     session[:user_id] = nil
     flash[:notice] = 'ログアウトしました'
     redirect_to('/login')
+  end
+
+  def likes
+    @user = User.find_by(id: params[:id])
+    @likes = Like.where(user_id: @user.id)
   end
 
   def ensure_correct_user
